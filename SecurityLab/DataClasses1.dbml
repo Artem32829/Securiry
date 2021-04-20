@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SecurityLab2" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-311VV1I;Initial Catalog=SecurityLab2;Integrated Security=True" SettingsObjectName="SecurityLab.Properties.Settings" SettingsPropertyName="SecurityLab2ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Registrations_user" Member="Registrations_user">
+    <Type Name="Registrations_user">
+      <Column Name="Id_regis" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name_user" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Job" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="id_fk_user" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="User_Sec_Registrations_user" Member="User_Sec" ThisKey="id_fk_user" OtherKey="Id_user" Type="User_Sec" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.User_Sec" Member="User_Sec">
+    <Type Name="User_Sec">
+      <Column Name="Id_user" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Number_phone" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Pass" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="isenable" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="User_Sec_Registrations_user" Member="Registrations_user" ThisKey="Id_user" OtherKey="id_fk_user" Type="Registrations_user" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ADMLessons" Member="ADMLessons">
+    <Type Name="ADMLessons">
+      <Column Name="[Номер за дания]" Member="Номер_за_дания" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="[Исполнитель первого этапа]" Member="Исполнитель_первого_этапа" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="[Исполнитель второго этапа]" Member="Исполнитель_второго_этапа" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="[Исполнитель третьего этапа]" Member="Исполнитель_третьего_этапа" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Задание" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="[Первый этап]" Member="Первый_этап" Type="System.String" DbType="NVarChar(1)" CanBeNull="true" />
+      <Column Name="[Второй этап]" Member="Второй_этап" Type="System.String" DbType="NVarChar(1)" CanBeNull="true" />
+      <Column Name="[Третий этап]" Member="Третий_этап" Type="System.String" DbType="NVarChar(1)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SkladView" Member="SkladView">
+    <Type Name="SkladView">
+      <Column Name="Заказчик" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ответственный" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Тип_оборудования" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Серийный_номер" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Модель_оборудования" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="СТБ" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SkladBas" Member="SkladBas">
+    <Type Name="SkladBas">
+      <Column Name="Id_sklad" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name_item" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="name_manufacture" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="country" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="number" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="model_item" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="name_man" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="lider_man" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="STB" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Country" Member="Country">
+    <Type Name="Country">
+      <Column Name="id_count" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="country" Member="country1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Country_Lessons" Member="Lessons" ThisKey="id_count" OtherKey="id_fk_les1" Type="Lessons" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Items" Member="Items">
+    <Type Name="Items">
+      <Column Name="id_item" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name_items" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Items_Lessons" Member="Lessons" ThisKey="id_item" OtherKey="id_fk_les" Type="Lessons" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Manufacture" Member="Manufacture">
+    <Type Name="Manufacture">
+      <Column Name="id_man" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="manufacture" Member="manufacture1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Manufacture_Lessons" Member="Lessons" ThisKey="id_man" OtherKey="id_fk_les2" Type="Lessons" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Model" Member="Model">
+    <Type Name="Model">
+      <Column Name="id_model" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="model" Member="model1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Model_Lessons" Member="Lessons" ThisKey="id_model" OtherKey="id_fk_les3" Type="Lessons" />
+    </Type>
+  </Table>
+  <Table Name="dbo.STB" Member="STB">
+    <Type Name="STB">
+      <Column Name="id_stb" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="stb" Member="stb1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="STB_Lessons" Member="Lessons" ThisKey="id_stb" OtherKey="id_fk_les4" Type="Lessons" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Lessons" Member="Lessons">
+    <Type Name="Lessons">
+      <Column Name="Id_lessons" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FIO_first" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FIO_second" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FIO_there" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Lesson" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="End_date" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Date_start" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Laba" Type="System.String" DbType="NVarChar(1)" CanBeNull="true" />
+      <Column Name="NameFileLaba" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Securit" Type="System.String" DbType="NVarChar(1)" CanBeNull="true" />
+      <Column Name="NameFileSecurity" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Check_lessons" Type="System.String" DbType="NVarChar(1)" CanBeNull="true" />
+      <Column Name="NameFilelessons" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="id_fk_les" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_fk_les1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_fk_les2" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_fk_les3" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_fk_les4" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Items_Lessons" Member="Items" ThisKey="id_fk_les" OtherKey="id_item" Type="Items" IsForeignKey="true" />
+      <Association Name="Country_Lessons" Member="Country" ThisKey="id_fk_les1" OtherKey="id_count" Type="Country" IsForeignKey="true" />
+      <Association Name="Manufacture_Lessons" Member="Manufacture" ThisKey="id_fk_les2" OtherKey="id_man" Type="Manufacture" IsForeignKey="true" />
+      <Association Name="Model_Lessons" Member="Model" ThisKey="id_fk_les3" OtherKey="id_model" Type="Model" IsForeignKey="true" />
+      <Association Name="STB_Lessons" Member="STB" ThisKey="id_fk_les4" OtherKey="id_stb" Type="STB" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

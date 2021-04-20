@@ -1,0 +1,192 @@
+﻿<Window x:Class="SecurityLab.SkladItem"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SecurityLab"
+        mc:Ignorable="d"
+        Title="SkladItem" Height="687.299" Width="1023.571">
+    <Window.Resources>
+        <Style x:Key="TB" TargetType="TextBox">
+            <Setter Property="Background" Value="#0000FF"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="BorderBrush" Value="#1E90FF"/>
+            <Setter Property="Padding" Value="10,0,0,0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Grid x:Name="Root" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}" SnapsToDevicePixels="True">
+                            <Border x:Name="Backround" BorderThickness="1" CornerRadius="2" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"/>
+                            <ScrollViewer x:Name="PART_ContentHost" BorderThickness="0" Padding="{TemplateBinding Padding}"
+                                          IsTabStop="False" Background="{x:Null}"
+                                          TextElement.Foreground="{TemplateBinding Foreground}"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="BorderBrush" Value="Azure"/>
+                            </Trigger>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter Property="BorderBrush" Value="#0000CD"/>
+                                <Setter Property="Background" Value="#00008B"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <DataGrid x:Name="gridSklad" HorizontalAlignment="Left" Height="519" Margin="46,58,0,0" VerticalAlignment="Top" Width="594"/>
+
+
+
+        <TextBox  x:Name="number" Style="{StaticResource TB}" Margin="653,190,58,0" VerticalAlignment="Top" Foreground="Black" Height="33" Background="White" BorderBrush="#FF0B24E0"/>
+        <TextBlock IsHitTestVisible="False" FontSize="14" Margin="671,194,70,0" VerticalAlignment="Top" Foreground="#A9A9A9" Height="23">
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=number}" Value="">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style><Run Text="Серийный номер"/>
+        </TextBlock>
+
+        <TextBox  x:Name="nameman" Style="{StaticResource TB}" Margin="653,266,58,0" VerticalAlignment="Top" Foreground="Black" Height="33" Background="White" BorderBrush="#FF0B24E0"/>
+        <TextBlock IsHitTestVisible="False" FontSize="14" Margin="671,271,70,0" VerticalAlignment="Top" Foreground="#A9A9A9" Height="23">
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=nameman}" Value="">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style><Run Text="ФИО заказчика"/>
+        </TextBlock>
+
+
+        <Border Name="open" Margin="683,430,58.2,185.6"
+        BorderThickness="1" Background="Transparent">
+            <Border.Style>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="BorderBrush" Value="Transparent"/>
+                </Style>
+            </Border.Style>
+            <Button Content="Добавить" FontSize="16" Foreground="White" Margin="0.2,0.2,-1,0" Click="Button_Click" Background="#FF0000C5"   >
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="OverridesDefaultStyle" Value="True"/>
+                        <Setter Property="Background" Value="#0000CD"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Name="border" BorderThickness="0" BorderBrush="Black"
+                                        Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#0000FF"/>
+                                        </Trigger>
+                                        <EventTrigger RoutedEvent="PreviewMouseDown">
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <ThicknessAnimation Storyboard.TargetProperty="Margin"
+                                                                    Duration="0:0:0.100" To="2,2,0,0"/>
+                                                    <ColorAnimation Storyboard.TargetProperty="Background.Color" To="#000080" Duration="0:0:0.002"/>
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger>
+                                        <EventTrigger RoutedEvent="PreviewMouseUp">
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <ThicknessAnimation Storyboard.TargetProperty="Margin"
+                                                                    Duration="0:0:0.100" To="0"/>
+                                                    <ColorAnimation Storyboard.TargetProperty="Background.Color" To="#0000CD" Duration="0:0:0.002"/>
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </Border>
+        <Border Name="fghjk" Margin="683,502,58,114"
+        BorderThickness="1" Background="Transparent">
+            <Border.Style>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="BorderBrush" Value="Transparent"/>
+                </Style>
+            </Border.Style>
+            <Button Content="Отчет" FontSize="16" Foreground="White" Margin="-1,-1,0,1" Click="Button_Click_1" Background="#FF0000C5"   >
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="OverridesDefaultStyle" Value="True"/>
+                        <Setter Property="Background" Value="#0000CD"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Name="border" BorderThickness="0" BorderBrush="Black"
+                                        Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#0000FF"/>
+                                        </Trigger>
+                                        <EventTrigger RoutedEvent="PreviewMouseDown">
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <ThicknessAnimation Storyboard.TargetProperty="Margin"
+                                                                    Duration="0:0:0.100" To="2,2,0,0"/>
+                                                    <ColorAnimation Storyboard.TargetProperty="Background.Color" To="#000080" Duration="0:0:0.002"/>
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger>
+                                        <EventTrigger RoutedEvent="PreviewMouseUp">
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <ThicknessAnimation Storyboard.TargetProperty="Margin"
+                                                                    Duration="0:0:0.100" To="0"/>
+                                                    <ColorAnimation Storyboard.TargetProperty="Background.Color" To="#0000CD" Duration="0:0:0.002"/>
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </Border>
+        <ComboBox Text="Тип оборудования" x:Name="name" IsEditable="True" HorizontalAlignment="Left" Margin="653,74,0,0" VerticalAlignment="Top" Width="305" Height="29"/>
+        <ComboBox Text="Страна производства" x:Name="countrybox" IsEditable="True" HorizontalAlignment="Left" Margin="653,108,0,0" VerticalAlignment="Top" Width="305" Height="29"/>
+        <ComboBox Text="Наименование изготовителя" x:Name="cmanufacturebox" IsEditable="True" HorizontalAlignment="Left" Margin="653,142,0,0" VerticalAlignment="Top" Width="305" Height="29"/>
+        <ComboBox Text="Модель" x:Name="model" IsEditable="True" HorizontalAlignment="Left" Margin="653,228,0,0" VerticalAlignment="Top" Width="305" Height="29"/>
+        <ComboBox Text="СТБ" x:Name="stb" IsEditable="True" HorizontalAlignment="Left" Margin="653,304,0,0" VerticalAlignment="Top" Width="305" Height="29"/>
+        <CheckBox x:Name="check1" Content="Пункты" HorizontalAlignment="Left" Margin="885,374,0,0" VerticalAlignment="Top" Width="61"/>
+        <TextBox x:Name="punkt" HorizontalAlignment="Left" Height="23" Margin="653,338,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="305"/>
+        <Grid HorizontalAlignment="Left" Height="262" Margin="963,71,0,0" VerticalAlignment="Top" Width="43">
+            <Image Source="Img/123.png" Margin="0,0,0,225" MouseDown="AddButton" />
+            <Image Source="Img/123.png" Margin="0,37,0,188"  MouseDown="AddCountry" />
+            <Image Source="Img/123.png" Margin="0,68,0,156"  MouseDown="AddCManufacture" />
+            <Image Source="Img/123.png" Margin="0,150,0,64"  MouseDown="AddModel" />
+            <Image Source="Img/123.png" Margin="0,223,0,0"  MouseDown="AddSTB" />
+
+        </Grid>
+        
+
+    </Grid>
+</Window>

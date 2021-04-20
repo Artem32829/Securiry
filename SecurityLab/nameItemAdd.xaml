@@ -1,0 +1,105 @@
+﻿<Window x:Class="SecurityLab.nameItemAdd"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SecurityLab"
+        mc:Ignorable="d"
+        Title="nameItemAdd" Height="187.133" Width="376.11" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style x:Key="TB" TargetType="TextBox">
+            <Setter Property="Background" Value="#0000FF"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="BorderBrush" Value="#1E90FF"/>
+            <Setter Property="Padding" Value="10,0,0,0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Grid x:Name="Root" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}" SnapsToDevicePixels="True">
+                            <Border x:Name="Backround" BorderThickness="1" CornerRadius="2" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"/>
+                            <ScrollViewer x:Name="PART_ContentHost" BorderThickness="0" Padding="{TemplateBinding Padding}"
+                                          IsTabStop="False" Background="{x:Null}"
+                                          TextElement.Foreground="{TemplateBinding Foreground}"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="BorderBrush" Value="Azure"/>
+                            </Trigger>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter Property="BorderBrush" Value="#0000CD"/>
+                                <Setter Property="Background" Value="#00008B"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <TextBox  x:Name="it" Style="{StaticResource TB}" Margin="58,31,58,0" VerticalAlignment="Top" Foreground="Black" Height="33" Background="White" BorderBrush="#FF0B24E0"/>
+        <TextBlock IsHitTestVisible="False" FontSize="14" Text="Название продукта" Margin="70,38,72,0" VerticalAlignment="Top" Foreground="#A9A9A9" Height="20">
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=it}" Value="">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+        <Border Name="butBorder" Margin="103,78,107,32"
+        BorderThickness="1" Background="Transparent">
+            <Border.Style>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="BorderBrush" Value="Transparent"/>
+                </Style>
+            </Border.Style>
+            <Button Content="Добавить" FontSize="16" Foreground="White" Margin="0.2,-0.8,-1.2,0.2" Click="Button_Click" >
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="OverridesDefaultStyle" Value="True"/>
+                        <Setter Property="Background" Value="#0000CD"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Name="border" BorderThickness="0" BorderBrush="Black"
+                                        Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#0000FF"/>
+                                        </Trigger>
+                                        <EventTrigger RoutedEvent="PreviewMouseDown">
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <ThicknessAnimation Storyboard.TargetProperty="Margin"
+                                                                    Duration="0:0:0.100" To="2,2,0,0"/>
+                                                    <ColorAnimation Storyboard.TargetProperty="Background.Color" To="#000080" Duration="0:0:0.002"/>
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger>
+                                        <EventTrigger RoutedEvent="PreviewMouseUp">
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <ThicknessAnimation Storyboard.TargetProperty="Margin"
+                                                                    Duration="0:0:0.100" To="0"/>
+                                                    <ColorAnimation Storyboard.TargetProperty="Background.Color" To="#0000CD" Duration="0:0:0.002"/>
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </Border>
+    </Grid>
+</Window>

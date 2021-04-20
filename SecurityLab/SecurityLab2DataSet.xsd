@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="SecurityLab2DataSet" targetNamespace="http://tempuri.org/SecurityLab2DataSet.xsd" xmlns:mstns="http://tempuri.org/SecurityLab2DataSet.xsd" xmlns="http://tempuri.org/SecurityLab2DataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="SecurityLab2ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="SecurityLab2ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.SecurityLab.Properties.Settings.GlobalReference.Default.SecurityLab2ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ADMLessonsTableAdapter" GeneratorDataComponentClassName="ADMLessonsTableAdapter" Name="ADMLessons" UserDataComponentName="ADMLessonsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SecurityLab2ConnectionString (Settings)" DbObjectName="SecurityLab2.dbo.ADMLessons" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT [Номер за дания], [Исполнитель первого этапа], [Исполнитель второго этапа], [Исполнитель третьего этапа], Задание, [Первый этап], [Второй этап], [Третий этап] FROM dbo.ADMLessons</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Номер за дания" DataSetColumn="Номер за дания" />
+              <Mapping SourceColumn="Исполнитель первого этапа" DataSetColumn="Исполнитель первого этапа" />
+              <Mapping SourceColumn="Исполнитель второго этапа" DataSetColumn="Исполнитель второго этапа" />
+              <Mapping SourceColumn="Исполнитель третьего этапа" DataSetColumn="Исполнитель третьего этапа" />
+              <Mapping SourceColumn="Задание" DataSetColumn="Задание" />
+              <Mapping SourceColumn="Первый этап" DataSetColumn="Первый этап" />
+              <Mapping SourceColumn="Второй этап" DataSetColumn="Второй этап" />
+              <Mapping SourceColumn="Третий этап" DataSetColumn="Третий этап" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SkladViewTableAdapter" GeneratorDataComponentClassName="SkladViewTableAdapter" Name="SkladView" UserDataComponentName="SkladViewTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SecurityLab2ConnectionString (Settings)" DbObjectName="SecurityLab2.dbo.SkladView" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Заказчик, Ответственный, Тип_оборудования, Серийный_номер, Модель_оборудования, СТБ FROM dbo.SkladView</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Заказчик" DataSetColumn="Заказчик" />
+              <Mapping SourceColumn="Ответственный" DataSetColumn="Ответственный" />
+              <Mapping SourceColumn="Тип_оборудования" DataSetColumn="Тип_оборудования" />
+              <Mapping SourceColumn="Серийный_номер" DataSetColumn="Серийный_номер" />
+              <Mapping SourceColumn="Модель_оборудования" DataSetColumn="Модель_оборудования" />
+              <Mapping SourceColumn="СТБ" DataSetColumn="СТБ" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="SecurityLab2DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="SecurityLab2DataSet" msprop:Generator_UserDSName="SecurityLab2DataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ADMLessons" msprop:Generator_TableClassName="ADMLessonsDataTable" msprop:Generator_TableVarName="tableADMLessons" msprop:Generator_TablePropName="ADMLessons" msprop:Generator_RowDeletingName="ADMLessonsRowDeleting" msprop:Generator_RowChangingName="ADMLessonsRowChanging" msprop:Generator_RowEvHandlerName="ADMLessonsRowChangeEventHandler" msprop:Generator_RowDeletedName="ADMLessonsRowDeleted" msprop:Generator_UserTableName="ADMLessons" msprop:Generator_RowChangedName="ADMLessonsRowChanged" msprop:Generator_RowEvArgName="ADMLessonsRowChangeEvent" msprop:Generator_RowClassName="ADMLessonsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Номер_x0020_за_x0020_дания" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnНомер_за_дания" msprop:Generator_ColumnPropNameInRow="Номер_за_дания" msprop:Generator_ColumnPropNameInTable="Номер_за_данияColumn" msprop:Generator_UserColumnName="Номер за дания" type="xs:int" />
+              <xs:element name="Исполнитель_x0020_первого_x0020_этапа" msprop:Generator_ColumnVarNameInTable="columnИсполнитель_первого_этапа" msprop:Generator_ColumnPropNameInRow="Исполнитель_первого_этапа" msprop:Generator_ColumnPropNameInTable="Исполнитель_первого_этапаColumn" msprop:Generator_UserColumnName="Исполнитель первого этапа" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Исполнитель_x0020_второго_x0020_этапа" msprop:Generator_ColumnVarNameInTable="columnИсполнитель_второго_этапа" msprop:Generator_ColumnPropNameInRow="Исполнитель_второго_этапа" msprop:Generator_ColumnPropNameInTable="Исполнитель_второго_этапаColumn" msprop:Generator_UserColumnName="Исполнитель второго этапа" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Исполнитель_x0020_третьего_x0020_этапа" msprop:Generator_ColumnVarNameInTable="columnИсполнитель_третьего_этапа" msprop:Generator_ColumnPropNameInRow="Исполнитель_третьего_этапа" msprop:Generator_ColumnPropNameInTable="Исполнитель_третьего_этапаColumn" msprop:Generator_UserColumnName="Исполнитель третьего этапа" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Задание" msprop:Generator_ColumnVarNameInTable="columnЗадание" msprop:Generator_ColumnPropNameInRow="Задание" msprop:Generator_ColumnPropNameInTable="ЗаданиеColumn" msprop:Generator_UserColumnName="Задание" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Первый_x0020_этап" msprop:Generator_ColumnVarNameInTable="columnПервый_этап" msprop:Generator_ColumnPropNameInRow="Первый_этап" msprop:Generator_ColumnPropNameInTable="Первый_этапColumn" msprop:Generator_UserColumnName="Первый этап" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Второй_x0020_этап" msprop:Generator_ColumnVarNameInTable="columnВторой_этап" msprop:Generator_ColumnPropNameInRow="Второй_этап" msprop:Generator_ColumnPropNameInTable="Второй_этапColumn" msprop:Generator_UserColumnName="Второй этап" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Третий_x0020_этап" msprop:Generator_ColumnVarNameInTable="columnТретий_этап" msprop:Generator_ColumnPropNameInRow="Третий_этап" msprop:Generator_ColumnPropNameInTable="Третий_этапColumn" msprop:Generator_UserColumnName="Третий этап" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SkladView" msprop:Generator_TableClassName="SkladViewDataTable" msprop:Generator_TableVarName="tableSkladView" msprop:Generator_TablePropName="SkladView" msprop:Generator_RowDeletingName="SkladViewRowDeleting" msprop:Generator_RowChangingName="SkladViewRowChanging" msprop:Generator_RowEvHandlerName="SkladViewRowChangeEventHandler" msprop:Generator_RowDeletedName="SkladViewRowDeleted" msprop:Generator_UserTableName="SkladView" msprop:Generator_RowChangedName="SkladViewRowChanged" msprop:Generator_RowEvArgName="SkladViewRowChangeEvent" msprop:Generator_RowClassName="SkladViewRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Заказчик" msprop:Generator_ColumnVarNameInTable="columnЗаказчик" msprop:Generator_ColumnPropNameInRow="Заказчик" msprop:Generator_ColumnPropNameInTable="ЗаказчикColumn" msprop:Generator_UserColumnName="Заказчик" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Ответственный" msprop:Generator_ColumnVarNameInTable="columnОтветственный" msprop:Generator_ColumnPropNameInRow="Ответственный" msprop:Generator_ColumnPropNameInTable="ОтветственныйColumn" msprop:Generator_UserColumnName="Ответственный" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Тип_оборудования" msprop:Generator_ColumnVarNameInTable="columnТип_оборудования" msprop:Generator_ColumnPropNameInRow="Тип_оборудования" msprop:Generator_ColumnPropNameInTable="Тип_оборудованияColumn" msprop:Generator_UserColumnName="Тип_оборудования" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Серийный_номер" msprop:Generator_ColumnVarNameInTable="columnСерийный_номер" msprop:Generator_ColumnPropNameInRow="Серийный_номер" msprop:Generator_ColumnPropNameInTable="Серийный_номерColumn" msprop:Generator_UserColumnName="Серийный_номер" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Модель_оборудования" msprop:Generator_ColumnVarNameInTable="columnМодель_оборудования" msprop:Generator_ColumnPropNameInRow="Модель_оборудования" msprop:Generator_ColumnPropNameInTable="Модель_оборудованияColumn" msprop:Generator_UserColumnName="Модель_оборудования" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="СТБ" msprop:Generator_ColumnVarNameInTable="columnСТБ" msprop:Generator_ColumnPropNameInRow="СТБ" msprop:Generator_ColumnPropNameInTable="СТБColumn" msprop:Generator_UserColumnName="СТБ" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ADMLessons" />
+      <xs:field xpath="mstns:Номер_x0020_за_x0020_дания" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
